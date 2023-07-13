@@ -22,12 +22,12 @@ def get_image_urls(search_query):
     for img in soup.find_all("img"):
         if img.has_attr("src"):
             print(f"{img['src']} {img['src']} {img['src']} {img['src']} {img['src']}")
-            start_index = min(
+            start_index = max(
             img["src"].find("http://"),
             img["src"].find("https://"),
             img["src"].find("www.")
             )
-        
+            print(f"start_index {start_index} {start_index} {start_index} {start_index}")
             # Remove everything before the first occurrence of http, https, or www in the URL
             if start_index != -1:
                 img["src"] = img["src"][start_index:]
